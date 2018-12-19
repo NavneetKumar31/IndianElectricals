@@ -1,0 +1,234 @@
+<div class="center-parent" id="loader">
+  <div class="center-parent-inner">
+    <div class="center-parent-center-outer">
+      <div class="center-parent-center-middle">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-3 float-inherit">
+          <form [formGroup]="registrationForm" (ngSubmit)="register()">
+            <!-- <img id="loader_enbw_logo" class="center-parent-logo zoomInDown" src="../../assets/images/logo_fff.png" alt="INDIA ELECTRICALS"> -->
+            <div class="material-input-group">
+              <div class="radio-group">
+                <label class="radio-inline">
+                  <input type="radio" formControlName="role" value="b2b" checked>
+                  B2B
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" formControlName="role" value="b2c" checked>
+                  B2C
+                </label>
+              </div>
+              <label class="material-input-label iconic">Type:</label>
+            </div>
+            <div class="material-input-group">
+              <input type="text" class="material-input iconic" formControlName="name" required>
+              <span class="highlight"></span>
+              <span class="material-input-bar"></span>
+              <label class="material-input-label iconic">UserName</label>
+            </div>
+            <div class="material-input-group">
+              <input type="text" class="material-input iconic" formControlName="email" required>
+              <span class="highlight"></span>
+              <span class="material-input-bar"></span>
+              <label class="material-input-label iconic">Email</label>
+            </div>
+            <div class="material-input-group">
+              <input type="text" class="material-input iconic" formControlName="mobile" required>
+              <span class="highlight"></span>
+              <span class="material-input-bar"></span>
+              <label class="material-input-label iconic">Mobile</label>
+            </div>
+            <div class="material-input-group">
+              <input class="material-input iconic" type="password" formControlName="password" required>
+              <span class="highlight"></span>
+              <span class="material-input-bar"></span>
+              <label class="material-input-label iconic">Password</label>
+            </div>
+            <div class="material-input-group">
+              <input class="material-input iconic" type="password" formControlName="confirmPassword" required>
+              <span class="highlight"></span>
+              <span class="material-input-bar"></span>
+              <label class="material-input-label iconic">Confirm Password</label>
+            </div>
+            <div style="display: flex">
+              <button type="submit" class="oval-button" [disabled]="!registrationForm.valid">
+                <span>Register</span>
+                <svg version="1.1" ng-if="onProgress" class="progress-svg circular-loader speed-normal" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80" height="80" viewBox="0 0 100 100"
+                  enable-background="new 0 0 0 0" xml:space="preserve" style="display:none">
+                  <path d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                  </path>
+                </svg>
+              </button>
+            </div>
+            <p class="text-center dont-do float-left text-white">
+              Already have an account.
+              <a (click)="routeTo('login')" data-toggle="modal" data-target="#">
+                <h5 class="text-white float-right">Log in here</h5>
+              </a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form action="#" method="post">
+    <div class="form-group">
+      <label class="col-form-label">Your Name</label>
+      <input type="text" class="form-control" placeholder=" " name="Name" required="">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label">Email</label>
+      <input type="email" class="form-control" placeholder=" " name="Email" required="">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label">Password</label>
+      <input type="password" class="form-control" placeholder=" " name="Password" id="password1" required="">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label">Confirm Password</label>
+      <input type="password" class="form-control" placeholder=" " name="Confirm Password" id="password2" required="">
+    </div>
+    <div class="right-w3l">
+      <input type="submit" class="form-control" value="Register">
+    </div>
+    <div class="sub-w3l">
+      <div class="custom-control custom-checkbox mr-sm-2">
+        <input type="checkbox" class="custom-control-input" id="customControlAutosizing2">
+        <label class="custom-control-label" for="customControlAutosizing2">I Accept to the Terms & Conditions</label>
+      </div>
+    </div>
+  </form>
+  <div class="square blue-dark left-bottom hu__hu__ ">
+  </div>
+  <div class="square red top-right hu__hu_r_ ">
+  </div>
+  <div class="wind-turbine-parent big">
+    <div class="wind-turbine-inner">
+      <svg version="1.1" id="Capa_1" class="turbine-propeller big" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+        <circle style="fill:transparent;" cx="25" cy="25" r="25" />
+        <polyline style="fill:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;" points="16,34 25,25 34,16
+                    " />
+        <polyline style="fill:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;" points="16,16 25,25 34,34
+                    " />
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+      </svg>
+      <svg version="1.1" id="Capa_1_poll" class="turbine-poll big" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" width="100" height="225" width="554.625px" height="554.625px" viewBox="0 0 554.625 554.625"
+        style="enable-background:new 0 0 554.625 554.625;" xml:space="preserve">
+        <g>
+          <polygon points="293.772,554.625 280.222,258.188 265.486,258.188 253.925,554.625 	" />
+          <circle cx="273.853" cy="212.766" r="19.823" />
+        </g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+      </svg>
+    </div>
+  </div>
+  <div class="wind-turbine-parent">
+    <div class="wind-turbine-inner">
+      <svg version="1.1" id="Capa_1" class="turbine-propeller" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+        <circle style="fill:transparent;" cx="25" cy="25" r="25" />
+        <polyline style="fill:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;" points="16,34 25,25 34,16
+                    " />
+        <polyline style="fill:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;" points="16,16 25,25 34,34
+                    " />
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+      </svg>
+      <svg version="1.1" id="Capa_1_poll" class="turbine-poll" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" width="100" height="225" width="554.625px" height="554.625px" viewBox="0 0 554.625 554.625"
+        style="enable-background:new 0 0 554.625 554.625;" xml:space="preserve">
+        <g>
+          <polygon points="293.772,554.625 280.222,258.188 265.486,258.188 253.925,554.625 	" />
+          <circle cx="273.853" cy="212.766" r="19.823" />
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>

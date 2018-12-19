@@ -1,0 +1,255 @@
+/*-- top-header --*/
+
+.main-top-w3l {
+    background: #ff8000;
+}
+
+.header-most-top p {
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+
+/*-- header Lists --*/
+
+.header-right ul li {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 4px 15px;
+}
+
+.header-right ul li a {
+    text-decoration: none;
+}
+
+.header-right ul li i {
+    font-size: 15px;
+}
+
+/*-- modal login --*/
+
+.modal-title {
+    font-size: 30px;
+    color: #0879c9;
+}
+
+.modal-content {
+    border: 10px solid rgba(244, 92, 93, 0.82);
+}
+
+label.col-form-label {
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: #000;
+}
+
+p.dont-do a {
+    color: #F45C5D;
+}
+
+.modal-footer .btn-primary,
+.modal-footer .btn-secondary {
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+}
+
+.modal-footer .btn-primary {
+    background-color: #0e0e0e;
+    border-color: #0e0e0e;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+.modal-footer .btn-primary:hover {
+    opacity: .8;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+.right-w3l input[type="submit"] {
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    background: #0879c9;
+    color: #fff;
+    margin: 2vw 0 1.5vw;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+input[type="button"],
+input[type="submit"] {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+/*-- location --*/
+
+.list_of_cities {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(47, 47, 47, 0.44);
+    color: #4d4d4d;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 1px;
+}
+
+/*-- //location --*/
+
+/*-- //header Lists --*/
+
+/*-- //top-header --*/
+
+/*-- header-bottom --*/
+
+/*-- search --*/
+
+.agileits_search input[type="search"] {
+    color: #191e21;
+    width: 78%;
+    letter-spacing: 1px;
+    padding: 10px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
+}
+
+.agileits_search button {
+    border-radius: 4px;
+    background: #ff8000;
+    color: #fff;
+    width: 20%;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
+    padding: 6px;
+}
+
+/*-- //search --*/
+
+/*-- logo --*/
+
+.logo_agile h1 a {
+    color: #F45C5D;
+    font-size: 38px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.logo_agile h1 a:hover {
+    text-decoration: none;
+}
+
+.logo_agile h1 a img {
+    position: relative;
+    margin: 7px;
+    /* left: -50px;
+    top: -11px; */
+}
+
+.logo_agile {
+    /* padding: 26px 0 21px; */
+}
+
+/*-- //logo --*/
+
+/*-- header cart button --*/
+
+button.w3view-cart {
+    font-size: 20px;
+    border-radius: 4px;
+    background: #008000;
+    color: #fff;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
+    padding: 3px 10px;
+}
+
+/*-- //header cart button --*/
+
+/*-- navigation --*/
+
+.navbar-inner {
+    background: #fdfeff;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.13);
+    border-top: 1px solid #e6e6e6;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: #000;
+}
+
+.navbar-light .navbar-nav .show>.nav-link,
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+    color: #ff8000;
+}
+
+/*-- navigation-dropdown --*/
+
+.agile_inner_drop_nav_info {
+    min-width: 673px;
+}
+
+ul.multi-column-dropdown li {
+    list-style-type: none;
+    line-height: 2.5em;
+}
+
+ul.multi-column-dropdown li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #545454;
+    letter-spacing: 1px;
+}
+
+ul.multi-column-dropdown li a:hover {
+    color: #F45C5D;
+}
+
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus {
+    background-color: #F45C5D;
+}
+
+.dropdown-item {
+    font-size: 15px;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #0879c9;
+}
+
+/*-- //navigation-dropdown --*/
+
+/*-- //navigation --*/
+
+/*-- //header-bottom --*/
+
+.user-info {
+  border: 1px solid black;
+  text-align: right;
+}
+
+.user-info p {
+  margin: 0;
+  letter-spacing: 1px;
+  font-size: 15px;
+  line-height: 1.3;
+  color: #999;
+}
