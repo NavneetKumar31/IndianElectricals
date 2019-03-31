@@ -1,5 +1,5 @@
 <!-- top-header -->
-<div class="agile-main-top">
+<div class="agile-main-top" *ngIf="!isConfigModule">
   <div class="container-fluid">
     <div class="row main-top-w3l py-2">
       <div class="col-lg-5 header-most-top">
@@ -20,22 +20,22 @@
             <i class="fas fa-phone mr-2"></i> 001 234 5678
           </li>
           <li class="text-center border-right text-white" *ngIf="!isLoggedIn" (click)="routeTo('login')">
-            <a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
+            <a class="text-white">
               <i class="fas fa-sign-in-alt mr-2"></i> Log In
             </a>
           </li>
           <li class="text-center border-right text-white" *ngIf="!isLoggedIn" (click)="routeTo('registration')">
-            <a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
+            <a class="text-white">
               <i class="fas fa-sign-out-alt mr-2"></i>Register </a>
           </li>
-          <li class="text-center border-right text-white">
+          <!--  <li class="text-center border-right text-white">
             <a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
               <i class="fas fa-shopping-cart mr-2"></i>Cart </a>
-          </li>
-          <li class="text-center text-white" *ngIf="isLoggedIn" (click)="logout()">
-            <a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
+          </li> -->
+          <!-- <li class="text-center text-white" *ngIf="isLoggedIn" (click)="logout()">
+            <a class="text-white">
               <i class="fas fa-sign-out-alt mr-2"></i> LogOut </a>
-          </li>
+          </li> -->
         </ul>
         <!-- //header lists -->
       </div>
@@ -43,43 +43,83 @@
   </div>
 </div>
 <!-- header-bottom-->
-<div class="header-bot">
+<div class="header-bot" *ngIf="!isConfigModule">
   <div class="container">
     <div class="row header-bot_inner_wthreeinfo_header_mid">
       <!-- logo -->
       <div class="col-md-3 logo_agile">
-        <h1 class="text-center">
-          <a href="index.html" class="font-weight-bold font-italic">
-            <img src="../../assets/images/logo.png" alt=" " class="img-fluid">
-          </a>
-        </h1>
+        <a href="index.html" class="font-weight-bold font-italic">
+          <img src="../../assets/images/logo.png" alt=" " class="img-fluid">
+        </a>
       </div>
       <!-- //logo -->
       <!-- header-bot -->
-      <div class="col-md-9 header mt-2 mb-md-0 mb-4">
+      <div class="col-md-9 header mb-md-0 mb-4">
         <div class="row">
-          <div class="col-8 agileits_search">
+          <div class="col-10 agileits_search" id="mySearchBar">
             <form class="form-inline" action="#" method="post">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
               <button class="btn my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
-          <button *ngIf="isLoggedIn" class="col-lg-4 col-md-4 user-info">
-            <div class="user-info-text">
-              <p>Hi! {{user.name |titlecase}}</p>
-              <p>{{user.role |uppercase}}</p>
-            </div>
-            <div class="user-info-icon">
-              <i class="fas fa-chevron-circle-down"></i>
-            </div>
-          </button>
+          <div class="col-2 float-right" *ngIf="isLoggedIn">
+            <ul class="navbar-nav align-items-center d-none d-md-flex">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" style="padding: 0px;">
+                  <div class="media align-items-center">
+                    <div class="media-body d-none d-lg-block">
+                      <h6 style="margin: 0; font-size: 20px;">{{user?.name |titlecase}}</h6>
+                     <span class="float-right" style="font-size: 9px; color: #000;">{{user?.role |uppercase}}</span>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                  <div class="dropdown-header noti-title">
+                    <h6 class="text-overflow m-0" style="text-align: center;">Welcome!</h6>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <a href="./examples/profile.html" class="dropdown-item pointer">
+                    <i class="fas fa-user-circle mr-2"></i>
+                    <span>My profile</span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <ng-template [ngIf]="user?.role === 'admin'">
+                    <a class="dropdown-item pointer" (click)="routeTo('config')">
+                      <i class="fas fa-tachometer-alt mr-2"></i>
+                      <span>Dashboard</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                  </ng-template>
+                  <a href="./examples/profile.html" class="dropdown-item pointer">
+                    <i class="fas fa-cog mr-2"></i>
+                    <span>Settings</span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <!-- <a href="./examples/profile.html" class="dropdown-item">
+                    <i class="ni ni-support-16"></i>
+                    <span>Support</span>
+                  </a> -->
+                  <a href="" class="dropdown-item pointer">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Cart</span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item pointer" (click)="logout()">
+                    <i class="fas fa-sign-out-alt mr-2"></i>
+                    <span>Logout</span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 <!-- navigation -->
-<div class="navbar-inner">
+<div class="navbar-inner" *ngIf="!isConfigModule">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:5px">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -92,6 +132,85 @@
             <a class="nav-link" href="index.html">Home
               <span class="sr-only">(current)</span>
             </a>
+          </li>
+          <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              LED & Lighting
+            </a>
+            <div class="dropdown-menu">
+              <div class="agile_inner_drop_nav_info p-4">
+                <h5 class="mb-3">LED & Lighting</h5>
+                <div class="row">
+                  <div class="col-sm-6 multi-gd-img">
+                    <ul class="multi-column-dropdown">
+                      <li>LED Lights</li>
+                      <li>LED Street Lights</li>
+                      <li>LED High Bay</li>
+                      <li>LED Downlights</li>
+                      <li>LED Battens</li>
+                      <li>LED Speciality Lamps</li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6 multi-gd-img">
+                    <ul class="multi-column-dropdown">
+                      <li>LED Lights</li>
+                      <li>LED Lights</li>
+                      <li>LED Lights Devices</li>
+                      <li>LED Lights Accessories</li>
+                      <li>LED Lights Zone</li>
+                      <li>LED Lights</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Cables and Wires
+            </a>
+            <div class="dropdown-menu">
+              <div class="agile_inner_drop_nav_info p-4">
+                <h5 class="mb-3">Cables and Wires</h5>
+                <div class="row">
+                  <div class="col-sm-6 multi-gd-img">
+                    <ul class="multi-column-dropdown">
+                      <li>Multicore Cable & Wires</li>
+                      <li>
+                        <a href="product.html">Networking Cables & Accessories</a>
+                      </li>
+                      <li>
+                        <a href="product.html">Control House </a>
+                      </li>
+                      <li>
+                        <a href="product.html">Switches & Automation</a>
+                      </li>
+                      <li>
+                        <a href="product.html">Switches Gears</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6 multi-gd-img">
+                    <ul class="multi-column-dropdown">
+                      <li>
+                        <a href="product.html">Switches Gears</a>
+                      </li>
+                      <li>
+                        <a href="product.html">Tools & Hardware</a>
+                      </li>
+                      <li>
+                        <a href="product.html">Appliance</a>
+                      </li>
+                      <li>
+                        <a href="product.html">Meters </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -243,7 +362,7 @@
           <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
             <a class="nav-link" href="product.html">New Arrivals</a>
           </li>
-          <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+          <!-- <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               Pages
@@ -258,7 +377,7 @@
               <a class="dropdown-item" href="checkout.html">Checkout Page</a>
               <a class="dropdown-item" href="payment.html">Payment Page</a>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact Us</a>
           </li>

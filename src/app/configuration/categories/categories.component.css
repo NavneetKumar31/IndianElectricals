@@ -1,0 +1,10 @@
+.myList li {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.addSubcategoryForm {
+    display: none;
+}

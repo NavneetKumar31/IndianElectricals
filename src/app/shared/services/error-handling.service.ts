@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 
+import { MessageService } from './message.service';
+import { FlashMessage } from '../models/flashMessage';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorHandlingService {
 
-  constructor() { }
+  currentMsg = new FlashMessage();
+
+  constructor( private _message: MessageService ) { }
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -16,10 +21,10 @@ export class ErrorHandlingService {
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
-      console.error(`Backend returned code ${error.status}, ` + ` Error body was ==> `);
+      console.error(`Server returned error code ${error.status}, ` + ` Error body is ==> `);
       console.error(error.error);
     }
     // return an observable with a user-facing error message
-    return throwError('Something bad happened; please try again later.');
+    return throwError(error.error);
   }
 }

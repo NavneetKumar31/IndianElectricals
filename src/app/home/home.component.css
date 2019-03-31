@@ -1,4 +1,19 @@
+.card {
+  display: block;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+  margin: 0px auto;
+  position: relative;
+  height: 350px;
+  width: 100%;
+  border-radius: 0rem;
+  border: none;
+  transition: all .2s ease-in-out;
+}
 
+.card:hover {
+  /*box-shadow: 0 5px 22px 0 rgba(0,0,0,.25);*/
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
 /*-- banner --*/
 
 /*-- carousel-slider --*/
@@ -43,7 +58,7 @@
 .carousel-item.item3,
 .carousel-item.item2,
 .carousel-item.item1 {
-  min-height: 640px;
+  min-height: 350px;
 }
 
 .w3l-space-banner {
@@ -147,10 +162,6 @@ h3.tittle-w3l span {
   visibility: hidden;
 }
 
-.product-men:nth-child(3) .product-new-top {
-  background: #FFC107;
-}
-
 .product-men:nth-child(4) .product-new-top {
   background: #219ff3;
 }
@@ -214,6 +225,11 @@ h3.tittle-w3l span {
   width: 40px;
   height: 40px;
   text-align: center;
+}
+
+.men-thumb-item img {
+  height: 150px;
+  width: 150px;
 }
 
 .men-thumb-item:hover {
@@ -380,8 +396,9 @@ h3.tittle-w3l span {
   border: none;
   padding: 0;
   margin-top: 0;
-cursor: pointer;
+  cursor: pointer;
 }
+
 .search-hotel form input[type="submit"]:hover {
   background-color: #ff8000;
 }
@@ -467,13 +484,14 @@ a.price-mar {
   color: #008000;
   display: block;
 }
+
 /*-- scroll --*/
 .scroll {
   position: absolute;
 }
 
 .box-scroll {
-min-height: 25em;
+  min-height: 25em;
   position: relative;
   overflow: hidden;
 }
@@ -601,21 +619,19 @@ p.w3l-nut-middle {
 /* now buy :start */
 .vert .carousel-item-next.carousel-item-left,
 .vert .carousel-item-prev.carousel-item-right {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .vert .carousel-item-next,
 .vert .active.carousel-item-right {
-    -webkit-transform: translate3d(0, 100%, 0);
-            transform: translate3d(0, 100% 0);
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100% 0);
 }
 
 .vert .carousel-item-prev,
 .vert .active.carousel-item-left {
--webkit-transform: translate3d(0,-100%, 0);
-        transform: translate3d(0,-100%, 0);
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
 }
-
-
 /* now buy ends */

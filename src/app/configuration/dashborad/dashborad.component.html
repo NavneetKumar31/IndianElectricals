@@ -1,0 +1,98 @@
+<main class="main">
+    <div class="scroll-container">
+        <div class="content-container">
+            <section class="content-section">
+                <div class="content-item">
+                    <div class="content-header">
+                        <h5>Weekly Sell Report</h5>
+                        <a href="#" class="content-menu"><i class="stroke-more"></i></a>
+                    </div>
+                    <div class="content-body">
+                        <div class="content-body-item" *ngFor="let day of ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']">
+                            <h4 class="text-center">{{day |titlecase}}</h4>
+                            <hr style="margin: 10px 0 20px 0;">
+                            <p class="stat">Total Sell: <span class="stat negative">20%</span></p>
+                            <p class="stat">Total Items: <span class="stat negative">20%</span></p>
+                            <p class="stat">Net Profit: <span class="stat negative">20%</span></p>
+                            <div class="graph">
+                                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <polygon points="100,20 0,60 0,100 100,100" />
+                                </svg>
+                            </div>
+                            <div class="graph">
+                                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <polygon points="100,0 0,10 0,100 100,100" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content-section">
+                <div class="content-item">
+                    <div class="content-header">
+                        <h5>Daily Sell Product Summary</h5>
+                        <a href="#" class="content-menu"><i class="stroke-more"></i></a>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card bg-default shadow" style="padding:20px; background-color:transparent">
+                                <div class="table-responsive">
+                                    <table class="table align-items-center table-dark table-flush">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Selling Price</th>
+                                                <th scope="col">Purchase Price</th>
+                                                <th scope="col">Sold Items</th>
+                                                <th scope="col">Net Profit</th>
+                                                <th scope="col">Remaining Items</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of daily_summary">
+                                                <th scope="row">
+                                                    {{item.name |titlecase}}
+                                                </th>
+                                                <td>
+                                                    {{item.selling_price}}
+                                                </td>
+                                                <td>
+                                                    {{item.purchase_price}}
+                                                </td>
+                                                <td>
+                                                    {{item.sold_items}}
+                                                </td>
+                                                <td>
+                                                    {{item.net_profit}}
+                                                </td>
+                                                <td>
+                                                    {{item.remaining_items}}
+                                                    <a *ngIf="item.remaining_items <= 5" class="badge badge-warning">Low</a>
+                                                </td>
+                                                <td class="text-right">
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>

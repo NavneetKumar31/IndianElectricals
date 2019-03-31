@@ -1,45 +1,57 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './material-module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from './app-routing.module';
+import { ConfigurationModule } from './configuration/configuration.module';
+import { ProductModule } from './product/product.module';
+import { UserModule } from './user/user.module';
+
+import { AuthHeaderInterceptorService } from './shared/interceptors/auth-header-interceptor.service';
+
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { MidcontainerComponent } from './midcontainer/midcontainer.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    DashboardComponent,
-    LoginComponent,
-    RegistrationComponent,
     HeaderComponent,
     FooterComponent,
-    MidcontainerComponent,
-    ErrorpageComponent
+    LoginComponent,
+    RegistrationComponent,
+    ErrorpageComponent,
+    HomeComponent
   ],
+
   imports: [
+    BrowserModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
 
-    MaterialModule,
+    ConfigurationModule,
+    ProductModule,
+    UserModule,
     AppRoutingModule
   ],
-  providers: [],
+
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHeaderInterceptorService,
+      multi: true
+    },
+  ],
+
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

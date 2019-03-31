@@ -3,6 +3,7 @@
   height: 65px;
   margin-top: -20px;
 }
+
 .progress-svg path {
   fill: #FFF;
 }
@@ -10,16 +11,16 @@
 /*********** BUTTON ************/
 .oval-button {
   max-height: 50px;
-    background-color: rgba(0,0,0,0.4);
-    color: #FFFFFF;
-    padding: 13px 10px;
-    border-radius: 30px;
-    font-size: 18px;
-    width: 100%;
-    border: none;
-    outline: none;
-    fill: transparent;
-    transition: all .5s;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #FFFFFF;
+  padding: 13px 10px;
+  border-radius: 30px;
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  outline: none;
+  fill: transparent;
+  transition: all .5s;
 }
 
 .oval-button:hover {
@@ -28,46 +29,56 @@
 
 /*********** BUTTON ************/
 /*********** INPUT *************/
-textarea.material-input:focus ~ label, textarea.material-input:valid ~ label,
-input.material-input:focus ~ label, input.material-input:valid ~ label {
+textarea.material-input:focus~label,
+textarea.material-input:valid~label,
+input.material-input:focus~label,
+input.material-input:valid~label {
   color: #fff;
 }
 
-.material-input-bar:before, .material-input-bar:after {
+.material-input-bar:before,
+.material-input-bar:after {
   background: #fff;
 }
 
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
-  from {
-  }
+  from {}
+
   to {
     width: 0;
     background: transparent;
   }
 }
+
 @-moz-keyframes inputHighlighter {
-  from {
-  }
+  from {}
+
   to {
     width: 0;
     background: transparent;
   }
 }
+
 @keyframes inputHighlighter {
-  from {
-  }
+  from {}
+
   to {
     width: 0;
     background: transparent;
   }
 }
+
 /* ********* INPUT *********** */
 @media screen and (min-width: 1200px) {
-  html, body, app-root {
+
+  html,
+  body,
+  app-root {
     height: 100%;
   }
 }
+
 .center-parent {
   transition: opacity .8s ease-in-out;
   position: fixed;
@@ -86,10 +97,12 @@ input.material-input:focus ~ label, input.material-input:valid ~ label {
   background-size: cover;
 
 }
+
 .center-parent .center-parent-logo {
   width: 300px;
   margin-bottom: 45px;
 }
+
 .center-parent .center-parent-inner {
   height: 100%;
   width: 100%;
@@ -97,6 +110,7 @@ input.material-input:focus ~ label, input.material-input:valid ~ label {
   padding: 0;
   position: static;
 }
+
 .center-parent .center-parent-center-outer {
   width: 100%;
   padding: 0;
@@ -107,19 +121,21 @@ input.material-input:focus ~ label, input.material-input:valid ~ label {
   left: 0;
   margin: 0;
 }
+
 .center-parent .progress-div img {
   height: 40px;
   width: 40px;
   animation-duration: 1.5s;
   animation-delay: .7s;
 }
+
 .center-parent .center-parent-center-middle {
   padding: 0;
   vertical-align: middle;
   display: table-cell !important;
   margin: 0;
   text-align: center;
-  background: rgba(0, 0, 0, 0.3 );
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .float-inherit {
@@ -144,7 +160,8 @@ input.material-input:focus ~ label, input.material-input:valid ~ label {
   font-size: 23px;
 }
 
-textarea.material-input.iconic, input.material-input.iconic {
+textarea.material-input.iconic,
+input.material-input.iconic {
   padding: 10px 20px 5px 20px;
 }
 
@@ -156,7 +173,8 @@ textarea.material-input.iconic, input.material-input.iconic {
   text-align: left;
 }
 
-textarea.material-input, input.material-input {
+textarea.material-input,
+input.material-input {
   font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
   padding: 10px 10px 10px 5px;
@@ -175,7 +193,8 @@ textarea.material-input {
   overflow: auto;
 }
 
-textarea.material-input:focus, input.material-input:focus {
+textarea.material-input:focus,
+input.material-input:focus {
   outline: none;
   border-bottom: 1px solid #fff;
 }
@@ -199,13 +218,21 @@ label.material-input-label.iconic {
 }
 
 /* active state */
-textarea.material-input:focus ~ label.material-input-label, textarea.material-input:valid ~ label.material-input-label, input[disabled].material-input ~ label.material-input-label, input.material-input:focus ~ label.material-input-label, input.material-input:valid ~ label.material-input-label {
+textarea.material-input:focus~label.material-input-label,
+textarea.material-input:valid~label.material-input-label,
+input[disabled].material-input~label.material-input-label,
+input.material-input:focus~label.material-input-label,
+input.material-input:valid~label.material-input-label {
   top: -20px;
   font-size: 14px;
 }
 
 /* active state */
-textarea.material-input.iconic:focus ~ label.material-input-label, textarea.material-input.iconic:valid ~ label.material-input-label, input[disabled].material-input.iconic ~ label.material-input-label, input.material-input.iconic:focus ~ label.material-input-label, input.material-input.iconic:valid ~ label.material-input-label {
+textarea.material-input.iconic:focus~label.material-input-label,
+textarea.material-input.iconic:valid~label.material-input-label,
+input[disabled].material-input.iconic~label.material-input-label,
+input.material-input.iconic:focus~label.material-input-label,
+input.material-input.iconic:valid~label.material-input-label {
   top: -20px;
   left: 5px;
   color: #000;
@@ -218,7 +245,8 @@ textarea.material-input.iconic:focus ~ label.material-input-label, textarea.mate
   display: block;
 }
 
-.material-input-bar:before, .material-input-bar:after {
+.material-input-bar:before,
+.material-input-bar:after {
   content: '';
   height: 2px;
   width: 0;
@@ -238,7 +266,10 @@ textarea.material-input.iconic:focus ~ label.material-input-label, textarea.mate
 }
 
 /* active state */
-textarea.material-input:focus ~ .material-input-bar:before, textarea.material-input:focus ~ .material-input-bar:after, input.material-input:focus ~ .material-input-bar:before, input.material-input:focus ~ .material-input-bar:after {
+textarea.material-input:focus~.material-input-bar:before,
+textarea.material-input:focus~.material-input-bar:after,
+input.material-input:focus~.material-input-bar:before,
+input.material-input:focus~.material-input-bar:after {
   width: 50%;
 }
 
@@ -254,7 +285,7 @@ textarea.material-input:focus ~ .material-input-bar:before, textarea.material-in
 }
 
 /* active state */
-input.material-input:focus ~ .highlight {
+input.material-input:focus~.highlight {
   /*    -webkit-animation:inputHighlighter 0.3s ease;
   -moz-animation:inputHighlighter 0.3s ease;
   animation:inputHighlighter 0.3s ease;*/
@@ -317,6 +348,7 @@ input.material-input:focus ~ .highlight {
   height: 128px;
   animation: rotate .9s infinite linear;
 }
+
 .turbine-propeller polyline {
   stroke: #fff;
 }
@@ -326,6 +358,7 @@ input.material-input:focus ~ .highlight {
   position: absolute;
   left: 25px;
 }
+
 .turbine-propeller.big polyline {
   stroke: #fff;
 }
@@ -337,9 +370,11 @@ input.material-input:focus ~ .highlight {
   top: -95px;
   left: -10px;
 }
+
 .turbine-poll polygon {
   fill: #fff;
 }
+
 .turbine-poll circle {
   fill: #fff;
 }
@@ -349,9 +384,11 @@ input.material-input:focus ~ .highlight {
   height: 500px;
   top: -195px;
 }
+
 .turbine-poll.big polygon {
   fill: #fff;
 }
+
 .turbine-poll.big circle {
   fill: #fff;
 }
@@ -366,15 +403,18 @@ input.material-input:focus ~ .highlight {
     transform: rotate(0deg);
     transform-origin: center;
   }
+
   50% {
     transform: rotate(180deg);
     transform-origin: center;
   }
+
   100% {
     transform: rotate(360deg);
     transform-origin: center;
   }
 }
+
 .hu__hu__ {
   animation: hu__hu__ infinite 2.5s ease-in-out;
 }
@@ -387,35 +427,43 @@ input.material-input:focus ~ .highlight {
   0% {
     left: -100px;
   }
+
   50% {
     left: -80px;
   }
+
   100% {
     left: -100px;
   }
 }
+
 @keyframes hu__hu_r_ {
   0% {
     right: -100px;
   }
+
   50% {
     right: -80px;
   }
+
   100% {
     right: -100px;
   }
 }
+
 @media screen and (max-width: 650px) {
   .wind-turbine-parent {
     visibility: hidden;
   }
 }
+
 @media screen and (max-height: 800px) {
   .square {
     width: 175px;
     height: 175px;
   }
 }
+
 @media screen and (max-height: 580px) {
   .square.top-right {
     top: -80px;
@@ -425,6 +473,7 @@ input.material-input:focus ~ .highlight {
     bottom: -80px;
   }
 }
+
 .circular-loader {
   margin: -20px 5px;
   fill: #009688;
@@ -465,38 +514,47 @@ input.material-input:focus ~ .highlight {
   0% {
     -webkit-transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
   }
 }
+
 @-moz-keyframes spin {
   0% {
     -moz-transform: rotate(0deg);
   }
+
   100% {
     -moz-transform: rotate(360deg);
   }
 }
+
 @-o-keyframes spin {
   0% {
     -o-transform: rotate(0deg);
   }
+
   100% {
     -o-transform: rotate(360deg);
   }
 }
+
 @-ms-keyframes spin {
   0% {
     -ms-transform: rotate(0deg);
   }
+
   100% {
     -ms-transform: rotate(360deg);
   }
 }
+
 @keyframes spin {
   0% {
     -ms-transform: rotate(0deg);
   }
+
   100% {
     -ms-transform: rotate(360deg);
   }

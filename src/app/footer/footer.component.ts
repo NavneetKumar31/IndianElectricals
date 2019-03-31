@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RoutingService } from '../shared/services/routing.service';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  isConfigModule: boolean;
+
+  constructor( private _routing: RoutingService ) { }
 
   ngOnInit() {
+    this._routing.isConfigModuleActive.subscribe(data => {
+      this.isConfigModule = data;
+    });
   }
 
 }

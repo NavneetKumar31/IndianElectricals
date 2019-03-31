@@ -1,0 +1,506 @@
+<!-- add product modal -->
+<div id="addModal" class="w3-modal myModal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom myModal-content-md">
+        <header class="w3-container myModal-header">
+            <button class="modal-close-btn w3-display-topright" (click)="toggleModal('addModal', 'none')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3>Add Product</h3>
+        </header>
+        <div class="w3-container myModal-ccontainer">
+            <div class="container">
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" class="form-control form-control-sm" [(ngModel)]="newProduct.name"
+                            placeholder="Enter name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Product Description</label>
+                            <input type="text" class="form-control form-control-sm" [(ngModel)]="newProduct.description"
+                            placeholder="Enter Decription">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Product Image</label>
+                            <input type="file" class="form-control form-control-sm" (change)="onFileSelected($event)">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#Manufacture"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            Manufacture Details
+                        </button>
+                        <div class="collapse" id="Manufacture">
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Brand</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="newProduct.manufacture_details.brand"
+                                            placeholder="Enter brand">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Model</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="newProduct.manufacture_details.model"
+                                            placeholder="Enter model">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Release Date</label>
+                                            <input type="date" class="form-control form-control-sm" [(ngModel)]="newProduct.manufacture_details.release_date"
+                                            placeholder="Enter release date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#Pricing" aria-expanded="false"
+                        aria-controls="collapseExample">
+                            Pricing Details
+                        </button>
+                        <div class="collapse" id="Pricing">
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Selling Price</label>
+                                            <input type="number" class="form-control form-control-sm" [(ngModel)]="newProduct.pricing_details.selling_price"
+                                            placeholder="Enter Selling Price" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Buying Price</label>
+                                            <input type="number" class="form-control form-control-sm" [(ngModel)]="newProduct.pricing_details.buying_price"
+                                            placeholder="Enter Buying Price">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Discount</label>
+                                            <input type="number" class="form-control form-control-sm" [(ngModel)]="newProduct.pricing_details.discount"
+                                            placeholder="Enter Discount">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#Stock" aria-expanded="false"
+                            aria-controls="collapseExample">
+                            Stock Details
+                        </button>
+                        <div class="collapse" id="Stock">
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Available Stock</label>
+                                            <input type="number" class="form-control form-control-sm"
+                                            [(ngModel)]="newProduct.stock_details.current_stock" placeholder="Enter Available Stock"
+                                            required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Alert Stock</label>
+                                            <input type="number" class="form-control form-control-sm"
+                                            [(ngModel)]="newProduct.stock_details.alert" placeholder="Enter Alert Stock">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#shipping" aria-expanded="false"
+                        aria-controls="collapseExample">
+                            Shipping Details
+                        </button>
+                        <div class="collapse" id="shipping">
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Weight</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="newProduct.shiping_details.weight"
+                                            placeholder="Enter Weight" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Height</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="newProduct.shiping_details.height"
+                                            placeholder="Enter Height">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Width</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="newProduct.shiping_details.width"
+                                            placeholder="Enter Width">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Depth</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="newProduct.shiping_details.depth"
+                                            placeholder="Enter Depth">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#technical" aria-expanded="false"
+                        aria-controls="collapseExample">
+                            Technical Details
+                        </button>
+                        <div class="collapse" id="technical">
+                            <div class="card card-body">
+                                <div class="form-group">
+                                    <label>Product Technical Details</label>
+                                    <input type="textarea" class="form-control form-control-sm" [(ngModel)]="newProduct.technical_details"
+                                    placeholder="Enter Technical Details" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="w3-container myModal-footer">
+            <div class="footer-right text-right">
+                <button type="button" class="btn primary-button mr-0" (click)="addProduct()">
+                    Save
+                </button>
+                <button type="button" class="btn secondary-button" (click)="toggleModal('addModal', 'none')">Cancel</button>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!-- update product modal -->
+<div id="updateModal" class="w3-modal myModal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom myModal-content-md">
+        <header class="w3-container myModal-header">
+            <button class="modal-close-btn w3-display-topright" (click)="toggleModal('updateModal', 'none')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3>Update Product</h3>
+        </header>
+        <div class="w3-container myModal-ccontainer">
+            <div class="container">
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" class="form-control form-control-sm" [(ngModel)]="selectedProduct.name"
+                            placeholder="Enter name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Product Description</label>
+                            <input type="text" class="form-control form-control-sm" [(ngModel)]="selectedProduct.description"
+                            placeholder="Enter Decription">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Product Image</label>
+                            <input type="file" class="form-control form-control-sm" (change)="onFileSelected($event)">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#Manufacture"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            Manufacture Details
+                        </button>
+                        <div class="collapse" id="Manufacture">
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Brand</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="selectedProduct.manufacture_details.brand"
+                                            placeholder="Enter brand">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Model</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="selectedProduct.manufacture_details.model"
+                                            placeholder="Enter model">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Release Date</label>
+                                            <input type="date" class="form-control form-control-sm" [(ngModel)]="selectedProduct.manufacture_details.release_date"
+                                            placeholder="Enter release date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#Pricing" aria-expanded="false"
+                        aria-controls="collapseExample">
+                            Pricing Details
+                        </button>
+                        <div class="collapse" id="Pricing">
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Selling Price</label>
+                                            <input type="number" class="form-control form-control-sm" [(ngModel)]="selectedProduct.pricing_details.selling_price"
+                                            placeholder="Enter Selling Price" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Buying Price</label>
+                                            <input type="number" class="form-control form-control-sm" [(ngModel)]="selectedProduct.pricing_details.buying_price"
+                                            placeholder="Enter Buying Price">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Product Discount</label>
+                                            <input type="number" class="form-control form-control-sm" [(ngModel)]="selectedProduct.pricing_details.discount"
+                                            placeholder="Enter Discount">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#Stock" aria-expanded="false"
+                            aria-controls="collapseExample">
+                            Stock Details
+                        </button>
+                        <div class="collapse" id="Stock">
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Available Stock</label>
+                                            <input type="number" class="form-control form-control-sm"
+                                                [(ngModel)]="selectedProduct.stock_details.current_stock" placeholder="Enter Available Stock"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Alert Stock</label>
+                                            <input type="number" class="form-control form-control-sm"
+                                                [(ngModel)]="selectedProduct.stock_details.alert" placeholder="Enter Alert Stock">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#shipping" aria-expanded="false"
+                        aria-controls="collapseExample">
+                            Shipping Details
+                        </button>
+                        <div class="collapse" id="shipping">
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Weight</label>
+                                            <input type="text" class="form-control" [(ngModel)]="selectedProduct.shiping_details.weight"
+                                            placeholder="Enter Weight" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Height</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="selectedProduct.shiping_details.height"
+                                                placeholder="Enter Height">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Width</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="selectedProduct.shiping_details.width"
+                                            placeholder="Enter Width">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Product Depth</label>
+                                            <input type="text" class="form-control form-control-sm" [(ngModel)]="selectedProduct.shiping_details.depth"
+                                            placeholder="Enter Depth">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <button class="btn my-expand-btn" type="button" data-toggle="collapse" data-target="#technical" aria-expanded="false"
+                        aria-controls="collapseExample">
+                            Technical Details
+                        </button>
+                        <div class="collapse" id="technical">
+                            <div class="card card-body">
+                                <div class="form-group">
+                                    <label>Product Technical Details</label>
+                                    <input type="textarea" class="form-control form-control-sm" [(ngModel)]="selectedProduct.technical_details"
+                                    placeholder="Enter Technical Details" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="w3-container myModal-footer">
+            <div class="footer-right text-right">
+                <button type="button" class="btn primary-button mr-0" (click)="updateProduct()">Save</button>
+                <button type="button" class="btn secondary-button" (click)="toggleModal('updateModal', 'none')">Cancel</button>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<main class="main">
+  <div class="scroll-container">
+      <div class="content-container">
+        <section class="content-section">
+          <div class="content-item">
+              <div class="content-header">
+                    <h5>Products</h5>
+                    <a href="#" class="content-menu"><i class="stroke-more"></i></a>
+                    <div class="header-right">
+                        <!-- dropdown for category -->
+                        <div class="dropdown my-inline-dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{selectedCategory.name |titlecase}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                                <a class="dropdown-item" (click)="resetCategoryFilter()">All</a>
+                                <ng-container *ngFor="let category of categories;">
+                                    <a class="dropdown-item" (click)="selectCategory(category)">{{category.name |titlecase}}</a>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- dropdown for subcategory -->
+                        <div class="dropdown my-inline-dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="subcategoryDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            [disabled]="selectedCategory.name === 'Select Category' || selectedCategory.name === 'All'">
+                                {{selectedSubcategory.name |titlecase}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="subcategoryDropdown">
+                                <a class="dropdown-item" (click)="resetSubCategoryFilter()">All</a>
+                                <ng-container *ngFor="let subcategory of subcategories;">
+                                    <a class="dropdown-item" (click)="selectSubCategory(subcategory)">{{subcategory.name |titlecase}}</a>
+                                </ng-container>
+                            </div>
+                        </div>                          
+                        <button class="btn-round-sm" (click)="toggleModal('addModal', 'block')"
+                        [disabled]="!canAddNew"
+                        [ngClass]="!canAddNew ? 'btn-disabled': ''">
+                            <i class="fas fa-plus mr-1"></i>
+                        </button>
+                        <button class="btn-round-sm" (click)="toggleModal('updateModal', 'block')"
+                        [disabled]="!canModified"
+                        [ngClass]="!canModified ? 'btn-disabled': ''">
+                            <i class="fas fa-pencil-alt mr-1"></i>
+                        </button>
+                        <button class="btn-round-sm" [disabled]="!canModified && !isAllProductSelected"
+                        (click)="deleteProduct()"
+                        [ngClass]="!canModified && !isAllProductSelected ? 'btn-disabled': ''">
+                            <i class="fas fa-trash-alt mr-1"></i>
+                        </button>
+                    </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="card bg-default shadow" style="padding:20px; background-color:transparent">
+                          <div class="table-responsive">
+                              <table class="table align-products-center table-dark table-flush">
+                                  <thead class="thead-dark">
+                                      <tr>
+                                            <th scope="col" class="text-left">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input"
+                                                    (click)="SelectAllProducts()"
+                                                    [(ngModel)]="isAllProductSelected">
+                                                    <label class="form-check-label" for="exampleCheck1">Name</label>
+                                                </div>
+                                            </th>
+                                            <th scope="col">Brand</th>
+                                            <th scope="col">Model</th>
+                                            <th scope="col">Selling Price</th>
+                                            <th scope="col">Purchase Price</th>
+                                            <th scope="col">Discount</th>
+                                            <th scope="col">Net Profit</th>
+                                            <!-- <th scope="col">Actions</th> -->
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <ng-container *ngFor="let product of products">
+                                        <tr>
+                                            <th scope="row" class="text-left">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" (click)="selecteProduct(product)"
+                                                        [(ngModel)]="product.isSelected">
+                                                    <label class="form-check-label" for="exampleCheck1">{{product?.name |titlecase}}</label>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                {{product?.manufacture_details?.brand}}
+                                            </td>
+                                            <td>
+                                                {{product?.manufacture_details?.model}}
+                                            </td>
+                                            <td>
+                                                {{product?.pricing_details?.selling_price}}
+                                            </td>
+                                            <td>
+                                                {{product?.pricing_details?.buying_price}}
+                                            </td>
+                                            <td>
+                                                {{product?.pricing_details?.discount}}
+                                            </td>
+                                            <td>
+                                                <ng-template [ngIf]="product?.pricing_details?.net_profit" #net_profit>
+                                                    <span>
+                                                        {{product?.pricing_details?.net_profit}}
+                                                    </span>
+                                                </ng-template>
+                                            </td>
+                                            <!-- <td class="text-center">
+                                                <div class="dropdown">
+                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                        <a class="dropdown-item" href="#">Shipping Details</a>
+                                                        <a class="dropdown-item" href="#">Vendors</a>
+                                                        <a class="dropdown-item" href="#">Stock Details</a>
+                                                        <a class="dropdown-item" href="#">Technical Details</a>
+                                                    </div>
+                                                </div>
+                                            </td> -->
+                                        </tr>
+                                      </ng-container>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </section>
+    </div>
+  </div>
+</main>

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { User } from '../shared/models/user';
+import { MessageService } from '../shared/services/message.service';
+import { FlashMessage } from '../shared/models/flashMessage';
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { RoutingService } from '../shared/services/routing.service';
+import { User } from '../shared/models/user';
+declare var getEncryptedData: any;
 
 @Component({
   selector: 'app-login',
@@ -13,9 +16,11 @@ import { RoutingService } from '../shared/services/routing.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  msg = new FlashMessage();
   private user = new User();
 
-  constructor( private _routing: RoutingService, private _formBuilder: FormBuilder, private _authentication: AuthenticationService,
+  constructor(private _routing: RoutingService, private _formBuilder: FormBuilder,
+    private _authentication: AuthenticationService, private _message: MessageService
   ) { }
 
   ngOnInit() {
@@ -31,7 +36,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.user.email = this.f.email.value;
-    this.user.password = this.f.password.value;
+    this.user.password = getEncryptedData(this.f.password.value);
 
     console.log(this.user);
 
@@ -41,11 +46,23 @@ export class LoginComponent implements OnInit {
         this._authentication.storeUserData(data);
         this._authentication.IsUserLoggedIn.next(true);
         console.log(this.user);
-        this.routeTo('home');
+        if (this.user.role.toLowerCase() === 'admin') {
+          this._routing.routeTo('config');
+        } else {
+          this.routeTo('home');
+        }
+        this.msg.severity = 'success';
+        this.msg.summary = 'Login';
+        this.msg.details = 'Login Successfully.'
+        this._message.changeMessage(this.msg);
       }
     },
     err => {
       console.error(err);
+      this.msg.severity = 'error';
+      this.msg.summary = 'Error';
+      this.msg.details = err.msg;
+      this._message.changeMessage(this.msg);
     });
   }
 

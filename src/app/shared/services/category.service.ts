@@ -1,40 +1,101 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
-import { Category } from '../models/category';
+import { ErrorHandlingService } from '../services/error-handling.service';
+import { Response } from '../models/response';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  private baseUrl = 'http://localhost:3000/categories/';
+  private categoryBaseUrl = 'http://localhost:3000/categories/';
+  private subCategoryBaseUrl = 'http://localhost:3000/subCategories/';
 
-  constructor( private _httpClient: HttpClient ) { }
+  constructor( private _httpClient: HttpClient, private _error: ErrorHandlingService ) { }
 
-  getAllCategories(): Observable<Category[]> {
-    const url = this.baseUrl + 'getAllCategories';
-    return this._httpClient.get<Category[]>(url)
-      .pipe(
-        tap(_ => console.log('fetched categories.')),
-        catchError(this.handleError('getHeroes', []))
-      );
+  getAllCategories(): Observable<Response> {
+    return this._httpClient.get(this.categoryBaseUrl)
+    .pipe(
+      catchError(this._error.handleError)
+    );
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
+  addCategory(newCategory): Observable<Response> {
+    return this._httpClient.post(this.categoryBaseUrl, newCategory, httpOptions)
+    .pipe(
+      catchError(this._error.handleError)
+    );
+  }
 
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+  updateCategory(category): Observable<Response> {
+    const url = this.categoryBaseUrl + category._id;
+    return this._httpClient.patch(url, category, httpOptions)
+    .pipe(
+      catchError(this._error.handleError)
+    );
+  }
 
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
+  deleteCategoryById(id: string): Observable<Response> {
+    const url = this.categoryBaseUrl + id;
+    return this._httpClient.delete(url)
+    .pipe(
+      catchError(this._error.handleError)
+    );
+  }
 
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
+  deleteAllCategory(): Observable<Response> {
+    return this._httpClient.delete(this.categoryBaseUrl, httpOptions)
+    .pipe(
+      catchError(this._error.handleError)
+    );
+  }
+
+  addSubcategory(newSubcategory): Observable<Response> {
+    return this._httpClient.post(this.subCategoryBaseUrl, newSubcategory, httpOptions)
+    .pipe(
+      catchError(this._error.handleError)
+    );
+  }
+
+  updateSubCategory(subcategory): Observable<Response> {
+    const url = this.subCategoryBaseUrl + subcategory._id;
+    return this._httpClient.patch(url, subcategory, httpOptions)
+    .pipe(
+      catchError(this._error.handleError)
+    );
+  }
+
+  deleteSubcategoriesByCategoryId(category): Observable<Response> {
+    const url = this.subCategoryBaseUrl + 'category/' + category._id;
+    return this._httpClient.delete(url, httpOptions)
+    .pipe(
+      catchError(this._error.handleError)
+    );
+  }
+
+  deleteSubcatgeoryById(subcategory): Observable<Response> {
+    const url = this.subCategoryBaseUrl + subcategory._id;
+    return this._httpClient.delete(url, httpOptions)
+    .pipe(
+      catchError(this._error.handleError)
+    );
+  }
+
+  deleteAllSubcategory(): Observable<Response> {
+    return this._httpClient.delete(this.subCategoryBaseUrl, httpOptions)
+    .pipe(
+      catchError(this._error.handleError)
+    );
   }
 }

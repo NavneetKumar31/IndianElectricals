@@ -1,8 +1,23 @@
-export interface Category {
+export class Category {
+  _id?: any;
   name?: string;
-  type?: string;
-  creationDate?: string;
-  id?: any;
   description?: string;
-  subcategories?: any[];
+  createdAt?: Date;
+  updatedAt?: Date;
+  subCategories?: SubCategory[] = [];
+  isSelected?: Boolean = false;
+
+  constructor() { }
+}
+
+export class SubCategory {
+  _id?: string;
+  name?: string;
+  description?: string;
+  category?: object;
+  createdAt?: Date;
+  updatedAt?: Date;
+  isSelected?: Boolean = false;
+
+  constructor() {}
 }

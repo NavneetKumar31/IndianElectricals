@@ -1,0 +1,125 @@
+<!-- add user modal -->
+<div id="addModal" class="w3-modal myModal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom myModal-content-md">
+        <header class="w3-container myModal-header">
+            <button class="modal-close-btn w3-display-topright" (click)="toggleModal('addModal', 'none')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3>Add Category</h3>
+        </header>
+        <div class="w3-container myModal-ccontainer" style="height: 170px !important;">
+            <div class="container">
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Enter Name</label>
+                            <input type="text" class="form-control form-control-sm" [(ngModel)]="newUser.name"
+                            placeholder="Enter Name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Select Role</label>
+                            <select class="form-control form-control-sm">
+                                <ng-container *ngFor="let role of availableRoles">
+                                    <option>{{role |uppercase}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Enter Email</label>
+                            <input type="textarea" class="form-control form-control-sm" [(ngModel)]="newUser.email"
+                            placeholder="Enter Email">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Enter Mobile No.</label>
+                            <input type="textarea" class="form-control form-control-sm" [(ngModel)]="newUser.mobile"
+                            placeholder="Enter Mobile">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="w3-container myModal-footer">
+            <div class="footer-right text-right">
+                <button type="button" class="btn primary-button mr-0" (click)="addCategory()">Save</button>
+                <button type="button" class="btn secondary-button"
+                (click)="toggleModal('addModal', 'none')">Cancel</button>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<main class="main">
+  <div class="scroll-container">
+      <div class="content-container">
+        <section class="content-section">
+          <div class="content-item">
+              <div class="content-header">
+                  <h5>Users</h5>
+                  <a class="content-menu"><i class="stroke-more"></i></a>
+                  <div class="header-right">
+                        <button class="btn-round-sm" (click)="toggleModal('addModal', 'block')">
+                            <i class="fas fa-plus mr-1"></i>
+                        </button>
+                        <button class="btn-round-sm">
+                            <i class="fas fa-pencil-alt mr-1"></i>
+                        </button>
+                        <button class="btn-round-sm">
+                            <i class="fas fa-trash-alt mr-1"></i>
+                        </button>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="card bg-default shadow" style="padding:20px; background-color:transparent">
+                          <div class="table-responsive">
+                              <table class="table align-items-center table-dark table-flush">
+                                  <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col" class="text-left">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                <label class="form-check-label" for="exampleCheck1">Name</label>
+                                            </div>
+                                        </th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Mobile</th>
+                                        <th scope="col">Role</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <ng-container *ngFor="let item of users">
+                                        <tr>
+                                            <th scope="row" class="text-left">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                    <label class="form-check-label" for="exampleCheck1">{{item?.name |titlecase}}</label>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                {{item?.email}}
+                                            </td>
+                                            <td>
+                                                {{item?.mobile}}
+                                            </td>
+                                            <td>
+                                                {{item?.role |uppercase}}
+                                            </td>
+                                        </tr>
+                                      </ng-container>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </section>
+    </div>
+  </div>
+</main>

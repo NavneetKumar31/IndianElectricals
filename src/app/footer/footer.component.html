@@ -1,5 +1,5 @@
 	<!-- footer -->
-	<footer>
+	<footer *ngIf="!isConfigModule">
       <div class="footer-top-first">
         <div class="container py-md-5 py-sm-4 py-3">
           <!-- footer first section -->
@@ -161,7 +161,7 @@
         </div>
       </div>
       <!-- //footer third section -->
-  
+
       <!-- footer fourth section -->
       <div class="agile-sometext py-md-5 py-sm-4 py-3">
         <div class="container">
@@ -411,7 +411,7 @@
     </footer>
     <!-- //footer -->
     <!-- copyright -->
-	<div class="copy-right py-3">
+	<div class="copy-right py-3" *ngIf="!isConfigModule">
       <div class="container">
         <p class="text-center text-white">© 2019 INDIA ELECTRICALS. All rights reserved   |   Design and Developed by
           <a href="http://ng_pro.com"> ng_pro.</a>

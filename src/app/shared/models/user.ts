@@ -4,8 +4,8 @@ export class User {
   email?: string;
   role?: string;
   mobile?: number;
-  createdAt?: string;
-  updatedAt?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
   password?: string;
 
   constructor() {}

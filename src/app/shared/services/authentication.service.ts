@@ -27,6 +27,14 @@ export class AuthenticationService {
 
   constructor( private _http: HttpClient, private _error: ErrorHandlingService, private _router: RoutingService ) { }
 
+  getAllUsers(): Observable<Response> {
+    return this._http
+    .get(this.baseUrl, httpOptions)
+    .pipe(
+      catchError(this._error.handleError)
+    );
+  }
+
   authenticateUser(user): Observable<Response> {
     const url = this.baseUrl + 'authenticate/';
     return this._http
@@ -73,6 +81,5 @@ export class AuthenticationService {
   loggedOut() {
     localStorage.clear();
     sessionStorage.clear();
-    // this._router.routeTo('login');
   }
 }

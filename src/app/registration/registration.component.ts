@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { RoutingService } from '../shared/services/routing.service';
 import { User } from '../shared/models/user';
+declare var getEncryptedData: any;
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +16,7 @@ export class RegistrationComponent implements OnInit {
   user = new User();
   registrationForm: FormGroup;
 
-  constructor( private _authentication: AuthenticationService, private _router: RoutingService, private _formBuilder: FormBuilder ) { }
+  constructor(private _authentication: AuthenticationService, private _router: RoutingService, private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.registrationForm = this._formBuilder.group({
@@ -37,7 +38,7 @@ export class RegistrationComponent implements OnInit {
     this.user.name = this.f.name.value;
     this.user.email = this.f.email.value;
     this.user.mobile = this.f.mobile.value;
-    this.user.password = this.f.password.value;
+    this.user.password = getEncryptedData(this.f.password.value);
 
     this._authentication.registerUser(this.user).subscribe(data => {
       if (data.success) {
@@ -53,4 +54,5 @@ export class RegistrationComponent implements OnInit {
   routeTo(path: String) {
     this._router.routeTo(path);
   }
+
 }
