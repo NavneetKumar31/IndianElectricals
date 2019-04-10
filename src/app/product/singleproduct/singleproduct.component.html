@@ -29,10 +29,10 @@
         </div>
         <div class="pricing_details">
           <h6>Price Details</h6>
-          <p> Actual Price: <del><span>&#8377;</span>{{ selectedProduct.pricing_details.selling_price }}</del></p>
+          <p> Actual Price: <del><span>&#8377;</span>{{ selectedProduct.pricing_details.selling_price }}</del> / {{ selectedProduct.pricing_details?.unit }}</p>
           <p> Discount: {{ selectedProduct.pricing_details.discount }}% </p>
           <p> Our Price: <span>&#8377;</span> {{selectedProduct.pricing_details.selling_price - (selectedProduct.pricing_details.selling_price * 
-              (selectedProduct.pricing_details.discount / 100))}} </p>
+              (selectedProduct.pricing_details.discount / 100))}} / {{ selectedProduct.pricing_details?.unit }}</p>
         </div>
         <div class="technical_details">
           <h6>Technical Details</h6>

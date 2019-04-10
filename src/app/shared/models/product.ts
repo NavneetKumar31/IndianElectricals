@@ -45,6 +45,7 @@ export class VendorDetails {
 export class PricingDetails {
     selling_price?: number;
     buying_price?: number;
+    unit?: string;
     discount?: number;
     net_profit?: number;
     currency?: string;

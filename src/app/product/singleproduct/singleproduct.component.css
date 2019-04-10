@@ -1,6 +1,6 @@
 .figure {
     border: 1px solid #ccc;
-    padding-top: 5px;
+    padding: 1rem;
     border-radius: 20px;
 }
 
@@ -11,6 +11,8 @@
 
 .manufacture_details p, .pricing_details p, .technical_details p {
     margin: 0;
+    max-height: 150px;
+    overflow: auto;
 }
 
 .manufacture_details h6, .pricing_details h6, .technical_details h6 {
