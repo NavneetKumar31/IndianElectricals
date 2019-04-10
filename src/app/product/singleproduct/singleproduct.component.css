@@ -1,0 +1,14 @@
+.general_details, .manufacture_details, .pricing_details, .technical_details {
+    /* border-top: 1px solid #ccc; */
+    border-bottom: 1px solid #ccc;
+}
+
+.manufacture_details p, .pricing_details p, .technical_details p {
+    margin: 0;
+}
+
+.manufacture_details h6, .pricing_details h6, .technical_details h6 {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+}

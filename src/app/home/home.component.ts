@@ -6,6 +6,7 @@ import { MessageService } from '../shared/services/message.service';
 import { Product } from '../shared/models/product';
 import { Category, SubCategory } from '../shared/models/category';
 import { FlashMessage } from '../shared/models/flashMessage';
+import { RoutingService } from '../shared/services/routing.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
   products: Product[] = [];
   categories: Category[] = [];
 
-  constructor( private _product: ProductService, private _category: CategoryService, private _message: MessageService ) { }
+  constructor( private _product: ProductService, private _category: CategoryService, private _message: MessageService,
+  private _routing: RoutingService ) { }
 
   ngOnInit() {
     this.getAllCategories();
@@ -64,5 +66,23 @@ export class HomeComponent implements OnInit {
       this.msg.details = err.msg;
       this._message.changeMessage(this.msg);
     });
+  }
+
+  selectProduct( selectedProduct: Product) {
+    console.log(selectedProduct);
+    this._product.selectedProduct.next(selectedProduct);
+    this.childRouteWithParamTo('product', 'single', selectedProduct._id);
+  }
+
+  routeTo(path: string) {
+    this._routing.routeTo(path.toLowerCase());
+  }
+
+  childRouteTo(parentPath: string, childPath: string) {
+    this._routing.childRouteTo(parentPath.toLowerCase(), childPath.toLowerCase());
+  }
+
+  childRouteWithParamTo(parentPath: string, childPath: string, id: string) {
+    this._routing.childRouteWithParamTo(parentPath.toLowerCase(), childPath.toLowerCase(), id);
   }
 }

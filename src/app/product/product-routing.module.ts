@@ -10,7 +10,7 @@ const productRoutes: Routes = [
   { path: 'product', component: ProductHomeComponent,
     children: [
       { path: 'cart', component: CartComponent },
-      { path: 'single', component: SingleproductComponent },
+      { path: 'single/:_id', component: SingleproductComponent },
       { path: 'multiple', component: MultipleproductComponent }
     ]
   }

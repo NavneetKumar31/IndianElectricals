@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, Event } from '@angular/router';
 
-import { observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +31,15 @@ export class RoutingService {
     this.checkCurrentRoute();
   }
 
-  childRouteTo(parentPath, childPath: String) {
-    const parentModule = '/' + parentPath;
+  childRouteTo(parentPath: string, childPath: String) {
+    const parentModule = '/' + parentPath.toLowerCase();
     this._router.navigate([parentModule, childPath.toLowerCase()]);
+    this.checkCurrentRoute();
+  }
+
+  childRouteWithParamTo(parentPath: string, childPath: String, id: string) {
+    const parentModule = '/' + parentPath.toLowerCase();
+    this._router.navigate([parentModule, childPath.toLowerCase(), id]);
     this.checkCurrentRoute();
   }
 }

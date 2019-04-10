@@ -6,6 +6,7 @@ import { catchError } from 'rxjs/operators';
 
 import { ErrorHandlingService } from '../services/error-handling.service';
 import { Response } from '../models/response';
+import { Product } from '../models/product';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -20,11 +21,35 @@ const httpOptions = {
 export class ProductService {
 
     private productBaseUrl = 'http://localhost:3000/products/';
+    selectedProduct = new Subject<Product>();
 
     constructor( private _httpClient: HttpClient, private _error: ErrorHandlingService ) { }
 
     getAllProducts(): Observable<Response> {
         return this._httpClient.get(this.productBaseUrl)
+        .pipe(
+            catchError(this._error.handleError)
+        );
+    }
+
+    getProductById(_id: string): Observable<Response> {
+        return this._httpClient.get(this.productBaseUrl + _id)
+        .pipe(
+            catchError(this._error.handleError)
+        );
+    }
+
+    getProductByCategory(_id: string): Observable<Response> {
+        const url = this.productBaseUrl + 'ByCategory/' + _id;
+        return this._httpClient.get(url)
+        .pipe(
+            catchError(this._error.handleError)
+        );
+    }
+
+    getProductBySubCategory(_id: string): Observable<Response> {
+        const url = this.productBaseUrl + 'BySubcategory/' + _id;
+        return this._httpClient.get(url)
         .pipe(
             catchError(this._error.handleError)
         );
