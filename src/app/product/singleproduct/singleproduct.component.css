@@ -1,3 +1,9 @@
+.figure {
+    border: 1px solid #ccc;
+    padding-top: 5px;
+    border-radius: 20px;
+}
+
 .general_details, .manufacture_details, .pricing_details, .technical_details {
     /* border-top: 1px solid #ccc; */
     border-bottom: 1px solid #ccc;

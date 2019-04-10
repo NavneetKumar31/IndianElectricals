@@ -2,11 +2,19 @@
   
   <!-- selected product details -->
   <div class="row mt-5 mb-5">
-    <div class="col-md-5">
-      <figure class="figure text-center">
+    <div class="col-md-5 text-center">
+      <figure class="figure">
         <img [src]="selectedProduct.productImage" class="figure-img img-fluid rounded" [alt]="selectedProduct?.name">
         <figcaption class="figure-caption">{{ selectedProduct?.name |uppercase}}</figcaption>
       </figure>
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn btn-secondary" style="width: 100%;">Add To Cart</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-primary" style="width: 100%;">Buy Now</button>
+        </div>
+      </div>
     </div>
     <div class="col-md-7">
       <h1>{{ selectedProduct?.name |titlecase }}</h1>
